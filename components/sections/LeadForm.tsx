@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { CheckCircle2, Loader2, User, Mail, Phone } from "lucide-react";
+import { Loader2, User, Mail, Phone } from "lucide-react";
 import { siteConfig } from "@/lib/config";
 import { FadeUp } from "@/components/motion";
 import {
@@ -21,7 +21,6 @@ const errorBase = "text-red-500 text-xs mt-1.5";
 
 export default function LeadForm() {
   const { form: formConfig } = siteConfig;
-  const [success, setSuccess] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
 
   const {
@@ -37,7 +36,7 @@ export default function LeadForm() {
     setSubmitError(null);
     try {
       await submitRegistration(data);
-      setSuccess(true);
+      window.location.href = "/thank-you";
     } catch (err) {
       setSubmitError(
         err instanceof Error ? err.message : "Something went wrong. Please try again."
@@ -60,22 +59,7 @@ export default function LeadForm() {
             </div>
 
             <div className="px-8 py-8">
-              {success ? (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.92 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="text-center py-10"
-                >
-                  <div className="w-18 h-18 rounded-full bg-green-50 border border-green-200 flex items-center justify-center mx-auto mb-5" style={{ width: 72, height: 72 }}>
-                    <CheckCircle2 size={38} className="text-green-500" />
-                  </div>
-                  <h3 className="text-[#0B1F3A] text-xl font-extrabold mb-2">Your seat has been reserved!</h3>
-                  <p className="text-gray-500 text-sm max-w-xs mx-auto">
-                    Check your email for the masterclass link. See you there!
-                  </p>
-                </motion.div>
-              ) : (
-                <form onSubmit={handleSubmit(onSubmit)} className="space-y-4" noValidate>
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-4" noValidate>
                   {/* First Name */}
                   <div>
                     <label className={labelBase}>
@@ -145,8 +129,7 @@ export default function LeadForm() {
                   <p className="text-center text-gray-400 text-xs mt-2 leading-relaxed">
                     By registering, you agree to receive communication about this masterclass. No spam, ever.
                   </p>
-                </form>
-              )}
+              </form>
             </div>
           </div>
         </FadeUp>

@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { X, CheckCircle2, Loader2 } from "lucide-react";
+import { X, Loader2 } from "lucide-react";
 import { siteConfig } from "@/lib/config";
 import {
   registerFormSchema,
@@ -33,7 +33,6 @@ export default function RegisterPopup() {
   const [open, setOpen] = useState(false);
   const [step, setStep] = useState<QualificationStep | "form">("agent");
   const [qualification, setQualification] = useState<QualificationData>(initialQualification);
-  const [success, setSuccess] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
 
   const {
@@ -51,7 +50,6 @@ export default function RegisterPopup() {
   const resetFlow = () => {
     setStep("agent");
     setQualification(initialQualification);
-    setSuccess(false);
     setSubmitError(null);
   };
 
@@ -84,8 +82,9 @@ export default function RegisterPopup() {
     setSubmitError(null);
     try {
       await submitRegistration(data, qualification);
-      setSuccess(true);
-      setTimeout(() => setOpen(false), 3500);
+      setOpen(false);
+      document.body.style.overflow = "";
+      window.location.href = "/thank-you";
     } catch (err) {
       setSubmitError(
         err instanceof Error ? err.message : "Something went wrong. Please try again."
@@ -95,8 +94,8 @@ export default function RegisterPopup() {
 
   const close = () => setOpen(false);
 
-  const showFormHeader = step === "form" && !success;
-  const showCloseButton = step === "form" && !success;
+  const showFormHeader = step === "form";
+  const showCloseButton = step === "form";
 
   return (
     <AnimatePresence>
@@ -183,22 +182,7 @@ export default function RegisterPopup() {
                         </div>
                       )}
 
-                      {success ? (
-                        <motion.div
-                          initial={{ opacity: 0, scale: 0.95 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          className="text-center py-8"
-                        >
-                          <CheckCircle2 size={48} className="text-green-500 mx-auto mb-4" />
-                          <h3 className="text-[rgb(18,51,50)] text-lg font-extrabold mb-1">
-                            You&apos;re Registered!
-                          </h3>
-                          <p className="text-[rgb(27,65,64)] text-sm">
-                            Your spot is confirmed. Check your email for masterclass details.
-                          </p>
-                        </motion.div>
-                      ) : (
-                        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4" noValidate>
+                      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4" noValidate>
                           <div>
                             <label htmlFor="popup-firstName" className={labelClass}>
                               First Name
@@ -281,7 +265,6 @@ export default function RegisterPopup() {
                             )}
                           </motion.button>
                         </form>
-                      )}
                     </motion.div>
                   )}
                 </AnimatePresence>

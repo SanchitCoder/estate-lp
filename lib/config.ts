@@ -295,6 +295,36 @@ export const siteConfig = {
     ],
   },
 
+  whatsappCommunity: {
+    url: "https://chat.whatsapp.com/BcNW0hQsQG06SjVafWDuGI",
+    label: "Join WhatsApp Community",
+    groupName: "AI Realtor Launchpad - Estate Labs",
+  },
+
+  thankYou: {
+    title: "You're Just One Step Away from Joining Our Private Community",
+    message:
+      "Tap below and join our exclusive WhatsApp community to get masterclass updates, reminders, and resources from Estate Labs.",
+    fbWebViewMessage:
+      "Your browser may block WhatsApp. Tap below to open this page in Chrome or Safari.",
+    joinButtonLabel: "Join the Community Now",
+    externalBrowserButtonLabel: "Open in Chrome / Safari",
+    copyButtonLabel: "Copy Join Link",
+    copySuccessLabel: "Copied ✓",
+    hintText:
+      "If the button doesn't open Chrome: tap the three dots (⋮) → choose Open in browser or Open in Chrome, then press again.",
+    manualJoinTitle: "How to Join Manually (only if the button doesn't work):",
+    manualJoinSteps: [
+      "Open WhatsApp and any chat (you can message yourself).",
+      "Long-press → Paste the link → Send it.",
+      "Tap that link — it'll take you straight to the join screen.",
+    ],
+    statusOpening: "Opening WhatsApp...",
+    statusLaunching: "Launching WhatsApp...",
+    statusCopied:
+      "Link copied. Paste it into any WhatsApp chat to join.",
+  },
+
   form: {
     title: "Register Now",
     subtitle: "For Real Estate Agents",
