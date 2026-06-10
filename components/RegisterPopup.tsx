@@ -54,14 +54,6 @@ export default function RegisterPopup() {
   };
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      resetFlow();
-      setOpen(true);
-    }, 600);
-    return () => clearTimeout(timer);
-  }, []);
-
-  useEffect(() => {
     const handleOpen = () => {
       resetFlow();
       setOpen(true);

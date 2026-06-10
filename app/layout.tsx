@@ -12,18 +12,20 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'Land Your Dream Job at Google & Amazon | Tech Career Masterclass',
+  title: 'Implement AI Into Your Real Estate Agency | Estate Labs Masterclass',
   description:
-    'Follow a proven 4-month roadmap covering DSA + System Design. Built for working engineers who want an offer letter from top tech companies like Google & Amazon.',
-  keywords: 'MAANG interview, DSA, system design, software engineer, Google, Amazon, tech career',
+    'Learn how to implement AI into your real estate agency to manage follow-ups, handle high enquiry volumes, and close more deals — without hiring extra staff.',
+  keywords:
+    'real estate AI, AI for real estate agents, real estate agency automation, lead follow-up, Estate Labs, Paras Arora',
   viewport: {
     width: 'device-width',
     initialScale: 1,
     viewportFit: 'cover',
   },
   openGraph: {
-    title: 'Land Your Dream Job at Google & Amazon | Tech Career Masterclass',
-    description: 'Follow a proven 4-month roadmap covering DSA + System Design.',
+    title: 'Implement AI Into Your Real Estate Agency | Estate Labs Masterclass',
+    description:
+      'Learn how to implement AI into your real estate agency to manage follow-ups and close more deals.',
     images: [{ url: 'https://bolt.new/static/og_default.png' }],
   },
   twitter: {
