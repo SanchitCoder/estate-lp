@@ -17,8 +17,8 @@ export const siteConfig = {
       image: "/images/mentor-hero.png",
     },
     masterclass: {
-      date: "14th June '26, Sunday",
-      time: "12:00 PM IST",
+      date: "18th June '26, Thursday",
+      time: "8:30 PM IST",
       duration: "90 Minutes",
       language: "Hinglish",
     },
