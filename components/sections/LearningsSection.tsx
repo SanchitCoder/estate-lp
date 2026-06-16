@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { MessageCircle, Bell, Smartphone, UserX } from "lucide-react";
-import { siteConfig } from "@/lib/config";
+import { useSiteConfig } from "@/lib/site-config-context";
 import { FadeUp, StaggerContainer, StaggerItem, smoothEase } from "@/components/motion";
 
 const iconMap: Record<string, React.ElementType> = {
@@ -70,7 +70,7 @@ function MasterclassQuote({
 }
 
 export default function LearningsSection() {
-  const { learnings } = siteConfig;
+  const { learnings } = useSiteConfig();
 
   return (
     <section className="perf-section section-dark section-padding">

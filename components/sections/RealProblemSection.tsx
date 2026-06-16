@@ -1,12 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { siteConfig } from "@/lib/config";
-import { openRegisterForm } from "@/lib/openRegisterForm";
+import { usePageContext, useSiteConfig } from "@/lib/site-config-context";
+import { handleOpenRegisterForm } from "@/lib/openRegisterForm";
 import { FadeUp, StaggerContainer, StaggerItem, smoothEase } from "@/components/motion";
 
 export default function RealProblemSection() {
-  const { realProblem } = siteConfig;
+  const { realProblem } = useSiteConfig();
+  const { getCtaLine } = usePageContext();
 
   return (
     <section className="perf-section section-light section-padding">
@@ -60,7 +61,7 @@ export default function RealProblemSection() {
 
         <FadeUp delay={0.24}>
           <motion.button
-            onClick={openRegisterForm}
+            onClick={handleOpenRegisterForm}
             className="btn-red w-full sm:w-auto max-w-sm mx-auto px-10 sm:px-14 py-4 sm:py-5 rounded-xl text-white font-extrabold animate-pulse-red"
             whileHover={{ scale: 1.03, transition: { duration: 0.3, ease: smoothEase } }}
             whileTap={{ scale: 0.98, transition: { duration: 0.15 } }}
@@ -70,6 +71,7 @@ export default function RealProblemSection() {
               {realProblem.ctaSubtext}
             </span>
           </motion.button>
+          <p className="text-gray-500 text-xs mt-3">{getCtaLine()}</p>
         </FadeUp>
       </div>
     </section>

@@ -1,6 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import { Instagram, Linkedin, Twitter, Youtube } from "lucide-react";
-import { siteConfig } from "@/lib/config";
+import { useSiteConfig } from "@/lib/site-config-context";
 
 const socialIcons = {
   linkedin: Linkedin,
@@ -36,7 +38,7 @@ function SocialButton({
 }
 
 export default function SiteFooter() {
-  const { footer } = siteConfig;
+  const { footer } = useSiteConfig();
 
   return (
     <footer className="bg-black border-t border-white/10 py-6 sm:py-8 px-4 sm:px-6 lg:px-8">

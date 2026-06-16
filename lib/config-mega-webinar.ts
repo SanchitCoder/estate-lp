@@ -1,21 +1,21 @@
 import type { SiteConfig } from "@/lib/site-config-types";
 
-export const siteConfig = {
+export const megaWebinarConfig = {
   siteUrl: "https://www.estatelabs.io",
-  eventFormat: "single" as const,
-  registrationSource: "90-min-masterclass",
+  eventFormat: "two-day" as const,
+  registrationSource: "2-day-mega-webinar",
   cta: "Register Free",
 
   announcement:
-    "FOR REAL ESTATE AGENTS WHO GET REGULAR ENQUIRIES BUT LOSE TRACK OF FOLLOW-UPS…",
+    "FREE 2-DAY MEGA WEBINAR FOR REAL ESTATE AGENTS READY TO BUILD A REAL AI FOLLOW-UP SYSTEM…",
 
   hero: {
-    headline: "Why ",
-    headlineHighlight1: "Top Agents",
-    headlineMiddle: " Never ",
-    headlineHighlight2: "\"Chase Leads\"",
+    headline: "The ",
+    headlineHighlight1: "2-Day AI Mega Webinar",
+    headlineMiddle: " For Agents Who Are ",
+    headlineHighlight2: "Done Losing Deals",
     subheadline:
-      "They fix follow-ups first — using AI to stay on top of every enquiry without hiring staff or running their business on chaotic WhatsApp threads",
+      "Two live evenings to diagnose where your follow-ups break — then build a complete AI-led system to handle enquiries, qualify buyers, and close without chaos on WhatsApp",
     mentor: {
       name: "Paras Arora",
       title: "AI Implementation Specialist · Founder, Estate Labs",
@@ -25,33 +25,33 @@ export const siteConfig = {
       image: "/images/mentor-hero.png",
     },
     masterclass: {
-      duration: "90 Minutes · 1 Live Session",
+      duration: "2 Days Live · 90 Min/Day",
       language: "Hinglish",
     },
-    detailsTabLabel: "90-Min Live Session",
+    detailsTabLabel: "2-Day Mega Webinar",
     cta: "Register Free",
   },
 
   video: {
     youtubeId: "tPwmXfoaDkI",
     startSeconds: 1,
-    title: "Real Estate AI Masterclass Preview",
+    title: "Estate Labs 2-Day Mega Webinar Preview",
     hookLines: [
-      "For real estate agents who already get enquiries",
-      "but lose deals to slow follow-ups",
-      "Free 90-min live session · Estate Labs",
+      "Free 2-day mega webinar for real estate agents",
+      "who get enquiries but lose deals to broken follow-ups",
+      "Day 1: Diagnose · Day 2: Build the System · Estate Labs",
     ],
   },
 
   brandsStrip: "/images/brands-strip.png",
 
   ctaStrip: {
-    headline: "Ready To Fix Follow-Ups Before Your Next Enquiry Goes Cold?",
+    headline: "Ready To Fix Follow-Ups Across Two Focused Live Days?",
     button: "Register Free",
   },
 
   learnings: {
-    title: "This Masterclass Is Built For Real Estate Agents, Brokers, and Agencies Who:",
+    title: "This 2-Day Mega Webinar Is Built For Real Estate Agents, Brokers, and Agencies Who:",
     subtitle: "",
     cards: [
       {
@@ -91,22 +91,22 @@ export const siteConfig = {
     boxTitle: "Deals are lost because:",
     reasons: [
       "Replies go out late — or not at all",
-      "Follow-ups stop after the first day",
+      "Follow-ups stop after Day 1",
       "Serious buyers get treated like casual browsers",
       "Consistency breaks on busy days",
     ],
     endResult:
       "60–80% of deals are lost silently — not because the lead was bad, but because the follow-up system is broken, causing a loss of visibility and control.",
     cta: "Register Free",
-    ctaSubtext: "Stop Losing Serious Buyers.",
+    ctaSubtext: "Reserve Your Seat for Both Days.",
   },
 
   masterclassAgenda: {
-    title: "What Happens in This 90-Minute Live Session",
-    subtitle: "One live session · 90 minutes · No multi-day commitment",
+    title: "What Happens Across 2 Live Days",
+    subtitle: "Two consecutive evenings · 90 minutes each · Same time both days (IST)",
     parts: [
       {
-        label: "First 45 minutes",
+        label: "Day 1",
         title: "Diagnose Where Deals Are Leaking",
         items: [
           "Where and why your enquiries actually go cold",
@@ -116,7 +116,7 @@ export const siteConfig = {
         ],
       },
       {
-        label: "Next 45 minutes",
+        label: "Day 2",
         title: "Build a Predictable Follow-Up System",
         items: [
           "What a scalable AI-led lead-handling system looks like",
@@ -154,10 +154,10 @@ export const siteConfig = {
     thisIs: {
       title: "This IS:",
       items: [
-        "A proven AI real estate lead-handling system walkthrough",
+        "A proven AI real estate lead-handling system walkthrough across 2 live days",
         "Clear visibility into where and why deals leak after enquiries",
         "A breakdown of how response, follow-up, and qualification actually work",
-        "A focused 90-minute live session built for real estate agents",
+        "An exclusive mega webinar designed specifically for real estate agents",
       ],
     },
   },
@@ -232,7 +232,7 @@ export const siteConfig = {
   },
 
   notFor: {
-    title: "This Masterclass Is NOT For:",
+    title: "This Mega Webinar Is NOT For:",
     items: [
       "Beginners or students",
       "Anyone looking for shortcuts, guarantees, or quick wins",
@@ -242,11 +242,11 @@ export const siteConfig = {
       "People who aren't serious about building predictable, scalable operations",
     ],
     footer:
-      "Join this session only if you're looking for clarity, control, and a real AI-powered system for your real estate business.",
+      "Join this mega webinar only if you're looking for clarity, control, and a real AI-powered system for your real estate business.",
   },
 
   bonuses: {
-    title: "By the end of this 90-minute session, you'll have absolute clarity on:",
+    title: "By the end of this 2-day mega webinar, you'll have absolute clarity on:",
     cards: [
       { number: "01", title: "Where and why your enquiries actually go cold" },
       { number: "02", title: "The exact lead-handling system your business is missing" },
@@ -262,22 +262,22 @@ export const siteConfig = {
       {
         question: "Do I need technical knowledge or AI experience to attend?",
         answer:
-          "No. This session is built for working real estate agents, not developers. Everything is explained in plain language with real examples from agency workflows — no coding, no jargon, and no prior AI experience required.",
+          "No. This mega webinar is built for working real estate agents, not developers. Everything is explained in plain language with real examples from agency workflows — no coding, no jargon, and no prior AI experience required.",
       },
       {
         question: "Is this about learning tools like ChatGPT or software setup?",
         answer:
-          "No. This is not a tools tutorial. You'll see how AI-led follow-up systems work at a high level — what to automate, what to keep human, and where most agents go wrong — without any live software setup during the session.",
+          "No. This is not a tools tutorial. Across both days you'll see how AI-led follow-up systems work at a high level — what to automate, what to keep human, and where most agents go wrong — without any live software setup.",
       },
       {
-        question: "Who should attend this session?",
+        question: "Who should attend this mega webinar?",
         answer:
           "Active agents, brokers, and agency owners who already receive enquiries from ads, portals, or WhatsApp but lose deals because follow-ups are slow, inconsistent, or impossible to track on busy days.",
       },
       {
         question: "I already use a CRM. Will this still be useful?",
         answer:
-          "Yes. Most CRMs still depend on agents manually updating stages and remembering to follow up. This session shows what your system should do automatically — response, qualification, reminders, and escalation — regardless of which CRM or portal you use.",
+          "Yes. Most CRMs still depend on agents manually updating stages and remembering to follow up. Day 1 shows where deals leak; Day 2 shows what your system should do automatically — regardless of which CRM or portal you use.",
       },
       {
         question: "Will this work for my city or local market?",
@@ -285,22 +285,27 @@ export const siteConfig = {
           "Yes. The follow-up principles apply across residential and commercial real estate in any city — India, Dubai, or elsewhere. Agents in Mumbai, Bangalore, Gurgaon, Ahmedabad, and Dubai have used the same framework; the market changes, but enquiry behaviour does not.",
       },
       {
-        question: "Is anything sold at the end of the session?",
+        question: "Is anything sold at the end of the webinar?",
         answer:
-          "The masterclass itself is free. Paras may briefly mention Estate Labs programs for agents who want hands-on implementation help, but there is no pressure to buy anything. You'll walk away with a complete system breakdown either way.",
+          "The mega webinar itself is free. Paras may briefly mention Estate Labs programs for agents who want hands-on implementation help, but there is no pressure to buy anything. You'll walk away with a complete system breakdown either way.",
       },
       {
-        question: "How long is the session and do I need to attend multiple days?",
+        question: "Do I need to attend both days?",
         answer:
-          "It's a single 90-minute live session — not a multi-day program. Show up once, get the full system walkthrough, and receive the bonus resources after registering.",
+          "Yes — Day 1 diagnoses where deals leak, and Day 2 builds the system. They're designed to work together. Both sessions are 90 minutes each, same time on consecutive evenings (IST). Replays are not guaranteed, so live attendance on both days is strongly recommended.",
+      },
+      {
+        question: "What are the dates and timings?",
+        answer:
+          "The page automatically shows the next upcoming 2-day cohort with both dates and times in IST. Register to get WhatsApp reminders for Day 1 and Day 2.",
       },
     ],
   },
 
   finalCta: {
-    headline: "Ready To Stop Losing Deals After the Enquiry?",
+    headline: "Ready To Fix Follow-Ups Over Two Live Days?",
     subheadline:
-      "Join agents who are fixing follow-ups first — before spending another rupee on leads.",
+      "Join agents building a real AI-powered follow-up system — not chasing one more lead source.",
     button: "Register Free",
   },
 
@@ -328,7 +333,7 @@ export const siteConfig = {
   thankYou: {
     title: "You're Just One Step Away from Joining Our Private Community",
     message:
-      "Tap below and join our exclusive WhatsApp community to get masterclass updates, reminders, and resources from Estate Labs.",
+      "Tap below and join our exclusive WhatsApp community to get mega webinar updates, reminders for both days, and resources from Estate Labs.",
     fbWebViewMessage:
       "Your browser may block WhatsApp. Tap below to open this page in Chrome or Safari.",
     joinButtonLabel: "Join the Community Now",
@@ -351,7 +356,7 @@ export const siteConfig = {
 
   form: {
     title: "Register Free",
-    subtitle: "For Real Estate Agents",
+    subtitle: "2-Day Mega Webinar · Real Estate Agents",
     tracks: [
       "Residential Sales",
       "Commercial Real Estate",

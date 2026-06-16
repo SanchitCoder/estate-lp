@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { siteConfig } from "@/lib/config";
-import { openRegisterForm } from "@/lib/openRegisterForm";
+import { handleOpenRegisterForm } from "@/lib/openRegisterForm";
 import { FadeUp, smoothEase } from "@/components/motion";
 
 export default function CtaStrip() {
@@ -16,7 +16,7 @@ export default function CtaStrip() {
         </FadeUp>
         <FadeUp delay={0.12}>
           <motion.button
-            onClick={openRegisterForm}
+            onClick={handleOpenRegisterForm}
             className="btn-red w-full sm:w-auto max-w-md sm:max-w-none mx-auto px-6 sm:px-10 py-4 text-xs sm:text-sm font-extrabold tracking-wide sm:tracking-widest uppercase rounded-xl animate-pulse-red inline-block"
             whileHover={{ scale: 1.03, transition: { duration: 0.3, ease: smoothEase } }}
             whileTap={{ scale: 0.98, transition: { duration: 0.15 } }}

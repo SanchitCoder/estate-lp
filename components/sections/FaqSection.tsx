@@ -3,11 +3,11 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
-import { siteConfig } from "@/lib/config";
+import { useSiteConfig } from "@/lib/site-config-context";
 import { FadeUp, StaggerContainer, StaggerItem, smoothEase } from "@/components/motion";
 
 export default function FaqSection() {
-  const { faq } = siteConfig;
+  const { faq } = useSiteConfig();
   const [open, setOpen] = useState<number | null>(0);
 
   return (

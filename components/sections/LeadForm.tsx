@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader2, User, Mail, Phone } from "lucide-react";
-import { siteConfig } from "@/lib/config";
+import { useSiteConfig } from "@/lib/site-config-context";
 import { FadeUp } from "@/components/motion";
 import {
   registerFormSchema,
@@ -20,7 +20,7 @@ const labelBase = "block text-gray-700 text-sm font-semibold mb-1.5";
 const errorBase = "text-red-500 text-xs mt-1.5";
 
 export default function LeadForm() {
-  const { form: formConfig } = siteConfig;
+  const { form: formConfig, hero } = useSiteConfig();
   const [submitError, setSubmitError] = useState<string | null>(null);
 
   const {
@@ -120,9 +120,9 @@ export default function LeadForm() {
                     whileTap={!isSubmitting ? { scale: 0.98 } : {}}
                   >
                     {isSubmitting ? (
-                      <><Loader2 size={16} className="animate-spin" /> Reserving Your Seat...</>
+                      <><Loader2 size={16} className="animate-spin" /> Registering...</>
                     ) : (
-                      siteConfig.hero.cta
+                      hero.cta
                     )}
                   </motion.button>
 

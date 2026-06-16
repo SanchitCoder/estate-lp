@@ -2,23 +2,24 @@
 
 import Image from "next/image";
 import { CheckCircle2 } from "lucide-react";
-import { siteConfig } from "@/lib/config";
+import { useSiteConfig } from "@/lib/site-config-context";
+import type { SiteConfig } from "@/lib/site-config-types";
 import { FadeUp } from "@/components/motion";
 
-type Day = (typeof siteConfig.masterclassDays.days)[number];
-type Bonus = (typeof siteConfig.masterclassDays.bonuses)[number];
+type Part = SiteConfig["masterclassAgenda"]["parts"][number];
+type Bonus = SiteConfig["masterclassAgenda"]["bonuses"][number];
 
-function DayCard({ day }: { day: Day }) {
+function PartCard({ part }: { part: Part }) {
   return (
     <div className="card-gradient w-full rounded-2xl border-2 border-[#2F80ED] p-4 sm:p-6 md:p-8 shadow-[0_8px_40px_rgba(47,128,237,0.08)]">
       <p className="text-[#7ec8ff] text-sm sm:text-base font-extrabold uppercase tracking-widest mb-2">
-        {day.label}
+        {part.label}
       </p>
       <h3 className="text-white text-lg sm:text-2xl md:text-3xl font-extrabold leading-snug mb-4 sm:mb-6">
-        {day.title}
+        {part.title}
       </h3>
       <ul className="space-y-3 sm:space-y-4">
-        {day.items.map((item, i) => (
+        {part.items.map((item, i) => (
           <li key={i} className="flex items-start gap-3">
             <CheckCircle2 size={18} className="text-[#2F80ED] flex-shrink-0 mt-0.5" />
             <span className="text-gray-300 text-sm sm:text-base leading-relaxed">{item}</span>
@@ -54,28 +55,31 @@ function BonusCard({ bonus }: { bonus: Bonus }) {
 }
 
 export default function MasterclassDaysSection() {
-  const { masterclassDays } = siteConfig;
+  const { masterclassAgenda } = useSiteConfig();
 
   return (
     <section className="perf-section section-dark section-padding">
       <div className="container-max max-w-4xl mx-auto">
         <FadeUp className="text-center mb-8 sm:mb-10">
-          <h2 className="heading-light">{masterclassDays.title}</h2>
+          <h2 className="heading-light">{masterclassAgenda.title}</h2>
+          <p className="text-gray-400 text-sm sm:text-base mt-3 max-w-xl mx-auto">
+            {masterclassAgenda.subtitle}
+          </p>
           <div className="divider-blue" />
         </FadeUp>
 
         <div className="flex flex-col gap-5 sm:gap-6 max-w-2xl mx-auto">
-          {masterclassDays.days.map((day) => (
-            <DayCard key={day.label} day={day} />
+          {masterclassAgenda.parts.map((part) => (
+            <PartCard key={part.label} part={part} />
           ))}
         </div>
 
         <div className="mt-10 sm:mt-14">
           <h3 className="heading-light text-center text-xl sm:text-2xl mb-6 sm:mb-8">
-            {masterclassDays.bonusesTitle}
+            {masterclassAgenda.bonusesTitle}
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 w-full max-w-sm sm:max-w-none sm:w-[85%] md:w-[70%] mx-auto">
-            {masterclassDays.bonuses.map((bonus) => (
+            {masterclassAgenda.bonuses.map((bonus) => (
               <BonusCard key={bonus.label} bonus={bonus} />
             ))}
           </div>

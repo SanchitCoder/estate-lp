@@ -1,12 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { siteConfig } from "@/lib/config";
-import { openRegisterForm } from "@/lib/openRegisterForm";
+import { usePageContext, useSiteConfig } from "@/lib/site-config-context";
+import { handleOpenRegisterForm } from "@/lib/openRegisterForm";
 import { FadeUp, smoothEase } from "@/components/motion";
 
 export default function FinalCta() {
-  const { finalCta } = siteConfig;
+  const { finalCta } = useSiteConfig();
+  const { getCtaLine } = usePageContext();
 
   return (
     <section className="section-light section-padding">
@@ -20,7 +21,7 @@ export default function FinalCta() {
         </FadeUp>
         <FadeUp delay={0.1}>
           <motion.button
-            onClick={openRegisterForm}
+            onClick={handleOpenRegisterForm}
             className="btn-red w-full sm:w-auto max-w-md sm:max-w-none mx-auto px-6 sm:px-12 py-4 sm:py-5 rounded-xl text-sm sm:text-base font-extrabold tracking-wide sm:tracking-widest uppercase animate-pulse-red inline-block"
             whileHover={{ scale: 1.03, transition: { duration: 0.3, ease: smoothEase } }}
             whileTap={{ scale: 0.97, transition: { duration: 0.15 } }}
@@ -30,7 +31,7 @@ export default function FinalCta() {
         </FadeUp>
         <FadeUp delay={0.18}>
           <p className="text-gray-400 text-sm mt-5">
-            Free · No credit card · Limited seats available
+            {getCtaLine()} · Free · No credit card
           </p>
         </FadeUp>
       </div>

@@ -1,11 +1,11 @@
 "use client";
 
-import { siteConfig } from "@/lib/config";
+import { useSiteConfig } from "@/lib/site-config-context";
 import { FadeUp, StaggerContainer, StaggerItem } from "@/components/motion";
 import OrbitCard from "@/components/lightswind/orbit-card";
 
 export default function BonusSection() {
-  const { bonuses } = siteConfig;
+  const { bonuses } = useSiteConfig();
 
   return (
     <section className="section-light section-padding">

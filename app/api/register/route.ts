@@ -24,11 +24,20 @@ export async function POST(request: Request) {
       countryCode: data.countryCode,
       phone: data.phone,
       fullPhone: `${data.countryCode}${data.phone}`,
-      isRealEstateAgent: body.isRealEstateAgent ?? null,
-      yearsOfExperience: body.yearsOfExperience ?? null,
-      hasClosedDeals: body.hasClosedDeals ?? null,
       submittedAt: body.submittedAt ?? new Date().toISOString(),
       source: body.source ?? "landing-page",
+      role: body.role ?? null,
+      roleLabel: body.roleLabel ?? null,
+      enquiriesPerMonth: body.enquiriesPerMonth ?? null,
+      enquiriesLabel: body.enquiriesLabel ?? null,
+      followUpMethod: body.followUpMethod ?? null,
+      followUpLabel: body.followUpLabel ?? null,
+      readiness: body.readiness ?? null,
+      readinessLabel: body.readinessLabel ?? null,
+      timeline: body.timeline ?? null,
+      timelineLabel: body.timelineLabel ?? null,
+      leadQuality: body.leadQuality ?? null,
+      leadScore: body.leadScore ?? null,
     };
 
     const webhookRes = await fetch(WEBHOOK_URL, {

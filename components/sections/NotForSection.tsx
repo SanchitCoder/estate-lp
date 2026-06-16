@@ -1,13 +1,13 @@
 "use client";
 
 import { X } from "lucide-react";
-import { siteConfig } from "@/lib/config";
+import { useSiteConfig } from "@/lib/site-config-context";
 import { FadeUp, StaggerContainer, StaggerItem } from "@/components/motion";
 import { ElectroBorder } from "@/components/lightswind/electro-border";
 
 
 export default function NotForSection() {
-  const { notFor } = siteConfig;
+  const { notFor } = useSiteConfig();
 
   return (
     <section className="perf-section section-light section-padding">

@@ -3,14 +3,16 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUp } from "lucide-react";
-import { siteConfig } from "@/lib/config";
-import { openRegisterForm } from "@/lib/openRegisterForm";
+import { usePageContext, useSiteConfig } from "@/lib/site-config-context";
+import { handleOpenRegisterForm } from "@/lib/openRegisterForm";
 import { useRafScroll } from "@/lib/useRafScroll";
 import { smoothEase } from "@/components/motion";
 
 export default function ScrollUI() {
   const [showTop, setShowTop] = useState(false);
   const progressRef = useRef<HTMLDivElement>(null);
+  const { cta } = useSiteConfig();
+  const { getCtaLine } = usePageContext();
 
   useRafScroll(() => {
     const scrolled = window.scrollY;
@@ -53,7 +55,7 @@ export default function ScrollUI() {
             exit={{ opacity: 0, scale: 0.8 }}
             transition={{ duration: 0.35, ease: smoothEase }}
             onClick={scrollToTop}
-            className="gpu-layer fixed bottom-[calc(5.5rem+env(safe-area-inset-bottom))] right-4 z-50 w-10 h-10 rounded-full btn-red flex items-center justify-center shadow-lg"
+            className="gpu-layer fixed bottom-[calc(5.5rem+env(safe-area-inset-bottom))] right-4 z-50 w-10 h-10 rounded-full btn-red flex items-center justify-center shadow-lg md:bottom-6"
             aria-label="Back to top"
           >
             <ArrowUp size={18} />
@@ -65,17 +67,20 @@ export default function ScrollUI() {
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.55, delay: 0.2, ease: smoothEase }}
-        className="gpu-layer fixed bottom-0 left-0 right-0 z-50 px-3 sm:px-4 pt-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))] bg-white border-t border-[#D8E7FF] shadow-[0_-4px_24px_rgba(0,0,0,0.1)]"
+        className="gpu-layer fixed bottom-0 left-0 right-0 z-50 px-3 pt-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))] bg-white border-t border-[#D8E7FF] shadow-[0_-4px_24px_rgba(0,0,0,0.1)] md:hidden"
       >
         <div className="max-w-xl mx-auto">
+          <p className="text-center text-[10px] text-gray-500 mb-2 font-medium">
+            {getCtaLine()}
+          </p>
           <motion.button
-            onClick={openRegisterForm}
-            className="btn-red gpu-layer w-full py-3 sm:py-4 px-2 rounded-xl text-[11px] sm:text-sm font-extrabold tracking-wide sm:tracking-widest uppercase leading-tight animate-pulse-red"
+            onClick={handleOpenRegisterForm}
+            className="btn-red gpu-layer w-full py-3 px-2 rounded-xl text-sm font-extrabold tracking-wide uppercase leading-tight animate-pulse-red"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             transition={{ type: "spring", stiffness: 400, damping: 25 }}
           >
-            {siteConfig.hero.cta}
+            {cta}
           </motion.button>
         </div>
       </motion.div>

@@ -1,13 +1,13 @@
 "use client";
 
 import { CheckCircle2 } from "lucide-react";
-import { siteConfig } from "@/lib/config";
+import { useSiteConfig } from "@/lib/site-config-context";
 import { FadeUp, StaggerContainer, StaggerItem } from "@/components/motion";
 import { TypewriterSequence } from "@/components/Typewriter";
 import Image from "next/image";
 
 export default function MentorStory() {
-  const { mentorStory } = siteConfig;
+  const { mentorStory } = useSiteConfig();
 
   return (
     <section className="perf-section section-dark section-padding overflow-x-clip">

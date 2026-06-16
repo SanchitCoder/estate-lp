@@ -1,7 +1,7 @@
 "use client";
 
 import { Check, X } from "lucide-react";
-import { siteConfig } from "@/lib/config";
+import { useSiteConfig } from "@/lib/site-config-context";
 import { FadeUp, StaggerContainer, StaggerItem } from "@/components/motion";
 import { ElectroBorder } from "@/components/lightswind/electro-border";
 
@@ -76,7 +76,7 @@ function WhoPanel({
 }
 
 export default function WhoItsFor() {
-  const { whoItsFor } = siteConfig;
+  const { whoItsFor } = useSiteConfig();
 
   return (
     <section className="perf-section section-light section-padding overflow-x-clip">
