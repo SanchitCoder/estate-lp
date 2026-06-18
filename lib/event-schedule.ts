@@ -13,9 +13,9 @@ export type TwoDayEvent = {
 
 export const singleEventSessions: SessionSlot[] = [
   {
-    id: "2026-06-18",
-    startsAt: "2026-06-18T20:30:00+05:30",
-    dateLabel: "18th June '26, Thursday",
+    id: "2026-06-21",
+    startsAt: "2026-06-21T20:30:00+05:30",
+    dateLabel: "21st June '26, Sunday",
     timeLabel: "8:30 PM IST",
   },
   {
