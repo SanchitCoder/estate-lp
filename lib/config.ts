@@ -320,7 +320,7 @@ export const siteConfig = {
   },
 
   whatsappCommunity: {
-    url: "https://chat.whatsapp.com/BcNW0hQsQG06SjVafWDuGI",
+    url: "https://chat.whatsapp.com/I4sKuPKlnto30qcwQ7AfIk",
     label: "Join WhatsApp Community",
     groupName: "AI Realtor Launchpad - Estate Labs",
   },

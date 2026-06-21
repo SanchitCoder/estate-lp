@@ -13,10 +13,10 @@ export type TwoDayEvent = {
 
 export const singleEventSessions: SessionSlot[] = [
   {
-    id: "2026-06-21",
-    startsAt: "2026-06-21T12:00:00+05:30",
-    dateLabel: "21st June '26, Sunday",
-    timeLabel: "12:00 PM IST",
+    id: "2026-06-25",
+    startsAt: "2026-06-25T20:30:00+05:30",
+    dateLabel: "25th June '26, Thursday",
+    timeLabel: "8:30 PM IST",
   },
   {
     id: "2026-07-02",
