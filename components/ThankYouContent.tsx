@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { CheckCircle2 } from "lucide-react";
 import { siteConfig } from "@/lib/config";
 import {
+  attachWhatsAppLinkClickHandler,
   autoRedirectToWhatsApp,
   buildAndroidIntentInvite,
   copyWhatsAppInvite,
@@ -17,24 +18,31 @@ export default function ThankYouContent() {
   const { thankYou, whatsappCommunity } = siteConfig;
   const waInvite = whatsappCommunity.url;
 
-  const [isFBWebView, setIsFBWebView] = useState(false);
+  const [isFBWebView] = useState(
+    () =>
+      typeof navigator !== "undefined" &&
+      isFacebookWebView(navigator.userAgent || "")
+  );
   const [statusText, setStatusText] = useState("");
   const [copyDone, setCopyDone] = useState(false);
   const [showAfterCopy, setShowAfterCopy] = useState(false);
   const autoRedirectStarted = useRef(false);
+  const whatsAppButtonRef = useRef<HTMLAnchorElement>(null);
 
   useEffect(() => {
-    const ua = navigator.userAgent || "";
-    const inFbWebView = isFacebookWebView(ua);
-    setIsFBWebView(inFbWebView);
-
-    if (inFbWebView) return;
+    if (isFBWebView) return;
 
     if (autoRedirectStarted.current) return;
     autoRedirectStarted.current = true;
     setStatusText(thankYou.statusOpening);
-    autoRedirectToWhatsApp(waInvite);
-  }, [thankYou, waInvite]);
+    autoRedirectToWhatsApp(waInvite, whatsAppButtonRef.current);
+  }, [isFBWebView, thankYou, waInvite]);
+
+  useEffect(() => {
+    return attachWhatsAppLinkClickHandler((url) => {
+      openWhatsAppInvite(url);
+    });
+  }, []);
 
   const handleExternalBrowserClick = useCallback(
     (e: React.MouseEvent) => {
@@ -118,6 +126,7 @@ export default function ThankYouContent() {
       ) : (
         <>
           <a
+            ref={whatsAppButtonRef}
             href={waInvite}
             onClick={handleWhatsAppClick}
             rel="noopener noreferrer"

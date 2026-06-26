@@ -100,19 +100,23 @@ export default function RegisterButton3D({ label, onClick }: RegisterButton3DPro
 
   return (
     <div ref={containerRef} className="relative mt-2 min-h-[48px] sm:min-h-[60px]">
-      <div className="absolute inset-0 overflow-hidden rounded-xl pointer-events-none hidden sm:block">
+      <div
+        className="absolute inset-0 overflow-hidden rounded-xl pointer-events-none hidden sm:block"
+        aria-hidden
+      >
         <Canvas
           camera={{ position: [0, 0, 4], fov: 50 }}
           gl={{ alpha: true, antialias: false, powerPreference: "high-performance" }}
           dpr={[1, 1.5]}
           frameloop={visible ? "always" : "never"}
-          style={{ background: "transparent" }}
+          style={{ background: "transparent", pointerEvents: "none" }}
         >
           <ButtonScene />
         </Canvas>
       </div>
 
       <motion.button
+        type="button"
         onClick={onClick}
         animate={{ scale: [1, 1.04, 1], y: [0, -4, 0] }}
         transition={{
@@ -122,7 +126,7 @@ export default function RegisterButton3D({ label, onClick }: RegisterButton3DPro
         }}
         whileHover={{ scale: 1.06, y: -3 }}
         whileTap={{ scale: 0.97 }}
-        className="btn-red gpu-layer relative sm:absolute inset-0 z-10 w-full min-h-[48px] sm:min-h-[60px] py-3 sm:py-4 px-2 text-[10px] sm:text-sm font-extrabold tracking-wide sm:tracking-widest uppercase rounded-xl leading-tight animate-pulse-red"
+        className="btn-red gpu-layer relative z-10 w-full min-h-[48px] sm:min-h-[60px] py-3 sm:py-4 px-2 text-[10px] sm:text-sm font-extrabold tracking-wide sm:tracking-widest uppercase rounded-xl leading-tight animate-pulse-red cursor-pointer"
       >
         {label}
       </motion.button>

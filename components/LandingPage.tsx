@@ -15,6 +15,7 @@ import FaqSection from "@/components/sections/FaqSection";
 import ScrollUI from "@/components/ScrollUI";
 import SmoothMotion from "@/components/SmoothMotion";
 import SiteFooter from "@/components/SiteFooter";
+import RegisterPopup from "@/components/RegisterPopup";
 import { SiteConfigProvider } from "@/lib/site-config-context";
 import type { SiteConfig } from "@/lib/site-config-types";
 
@@ -41,6 +42,7 @@ export default function LandingPage({ config }: { config: SiteConfig }) {
           <SiteFooter />
         </main>
       </SmoothMotion>
+      <RegisterPopup />
     </SiteConfigProvider>
   );
 }

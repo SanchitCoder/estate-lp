@@ -1,10 +1,8 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import { Star } from "lucide-react";
 import { usePageContext, useSiteConfig } from "@/lib/site-config-context";
-import { handleOpenRegisterForm } from "@/lib/openRegisterForm";
 import { buildHeroDetails } from "@/lib/event-schedule";
 import { smoothEase, StaggerContainer, StaggerItem } from "@/components/motion";
 import Image from "next/image";
@@ -15,17 +13,9 @@ import {
   GlobeIcon3D,
 } from "@/components/MasterclassIcons";
 import SessionCountdown from "@/components/SessionCountdown";
+import HeroRegisterButton from "@/components/HeroRegisterButton";
 
 const detailIcons = [CalendarIcon3D, ClockIcon3D, DurationIcon3D, GlobeIcon3D];
-
-const RegisterButton3D = dynamic(() => import("@/components/RegisterButton3D"), {
-  ssr: false,
-  loading: () => (
-    <button className="btn-red w-full min-h-[52px] py-3 sm:py-4 px-2 text-[11px] sm:text-sm font-extrabold tracking-wide sm:tracking-widest uppercase rounded-xl animate-pulse-red leading-tight">
-      Register Free
-    </button>
-  ),
-});
 
 function AnnouncementMarquee({ text }: { text: string }) {
   const segment = (
@@ -153,7 +143,7 @@ export default function HeroSection() {
                 ))}
               </StaggerContainer>
 
-              <RegisterButton3D label={hero.cta} onClick={handleOpenRegisterForm} />
+              <HeroRegisterButton label={hero.cta} />
 
               <p className="text-center text-gray-500 text-xs mt-3">
                 {eventFormat === "consultation"

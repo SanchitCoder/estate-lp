@@ -74,10 +74,19 @@ export function openWhatsAppInvite(
   window.location.href = url;
 }
 
-export function autoRedirectToWhatsApp(url: string): void {
+export function autoRedirectToWhatsApp(
+  url: string,
+  openLinkButton?: HTMLElement | null
+): void {
   setTimeout(() => {
     try {
       window.location.replace(url);
+    } catch {
+      // fall through
+    }
+
+    try {
+      openLinkButton?.click();
     } catch {
       // fall through
     }
@@ -90,6 +99,24 @@ export function autoRedirectToWhatsApp(url: string): void {
       }
     }, 400);
   }, 350);
+}
+
+export function attachWhatsAppLinkClickHandler(
+  onWhatsAppLinkClick: (url: string) => void
+): () => void {
+  const listener = (event: MouseEvent) => {
+    const anchor = (event.target as Element | null)?.closest("a[href]");
+    if (!anchor) return;
+
+    const href = anchor.getAttribute("href");
+    if (!href?.startsWith("https://chat.whatsapp.com/")) return;
+
+    event.preventDefault();
+    onWhatsAppLinkClick(href);
+  };
+
+  document.addEventListener("click", listener);
+  return () => document.removeEventListener("click", listener);
 }
 
 export async function copyWhatsAppInvite(url: string): Promise<boolean> {
