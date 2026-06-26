@@ -3,8 +3,6 @@ import type { Metadata } from 'next';
 import Script from 'next/script';
 import { Inter } from 'next/font/google';
 import { siteConfig } from '@/lib/config';
-import ChatbotWidget from '@/components/ChatbotWidget';
-import GlobalRegisterPopup from '@/components/GlobalRegisterPopup';
 
 const META_PIXEL_ID = '1283319630551339';
 const OG_IMAGE_URL = `${siteConfig.siteUrl}/images/og-share.png`;
@@ -84,8 +82,6 @@ export default function RootLayout({
           />
         </noscript>
         {children}
-        <GlobalRegisterPopup />
-        <ChatbotWidget />
       </body>
     </html>
   );

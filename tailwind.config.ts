@@ -9,6 +9,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        'el-serif': ['var(--font-fraunces)', 'Georgia', 'serif'],
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
@@ -53,6 +56,11 @@ const config: Config = {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
+        'el-green': '#0E2A22',
+        'el-gold': '#C9A24B',
+        'el-cream': '#F5F0E6',
+        'el-charcoal': '#161A18',
+        'el-sage': '#7E9587',
         chart: {
           '1': 'hsl(var(--chart-1))',
           '2': 'hsl(var(--chart-2))',
