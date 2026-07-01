@@ -19,9 +19,9 @@ export const singleEventSessions: SessionSlot[] = [
     timeLabel: "8:30 PM IST",
   },
   {
-    id: "2026-07-01",
-    startsAt: "2026-07-01T20:30:00+05:30",
-    dateLabel: "1st July '26, Wednesday",
+    id: "2026-07-03",
+    startsAt: "2026-07-03T20:30:00+05:30",
+    dateLabel: "3rd July '26, Friday",
     timeLabel: "8:30 PM IST",
   },
 ];
